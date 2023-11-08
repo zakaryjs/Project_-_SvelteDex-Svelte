@@ -24,7 +24,7 @@
 <!-- Markup -->
 <h1>Change the pokemon that is displayed! (Enter the dex number in the text box below.)</h1>
 <form on:submit={fetchPokemonData}>
-    <input required type="number" bind:value={number}>
+    <input required type="number" min="1" max="1010" bind:value={number}>
 </form>
 
 <h2>{pokemonObj.name}</h2>
