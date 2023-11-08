@@ -38,7 +38,9 @@
     </div>
 
     {#each stats as { base_stat, stat }, i}
-    <h3>{stat.name.toUpperCase()}: {base_stat}</h3>
+    <key id={i}>
+        <h3>{stat.name.toUpperCase()}: {base_stat}</h3>
+    </key>
     {/each}
 
 
