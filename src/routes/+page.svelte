@@ -7,6 +7,9 @@
     let pokemonObj = []
     let number = '1'
     let newNumber = ''
+    let pokemonName = ''
+    let stats = ''
+    
 
     async function fetchPokemonData() {
         newNumber = number
@@ -14,7 +17,9 @@
         let data = await response.json().catch(error => error)
         pokemonObj = data
         number = data.id
-        name = data.name
+        pokemonName = data.name
+        stats = data.stats
+        console.log(data)
     }
 
     onMount(fetchPokemonData)
@@ -32,11 +37,18 @@
     <img src={`${baseUrl}${newNumber}.png`} alt="pokemon">
 </div>
 
+{#each stats as { base_stat, stat }, i}
+<h3>{stat.name.toUpperCase()}: {base_stat}</h3>
+{/each}
 
 
 <!-- Styling -->
 <style>
 h1 {
+    text-align: center;
+}
+
+h3 {
     text-align: center;
 }
 
