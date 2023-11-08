@@ -11,7 +11,7 @@
     async function fetchPokemonData() {
         newNumber = number
         let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${newNumber}`).catch(error => error)
-        let data = await response.json()
+        let data = await response.json().catch(error => error)
         pokemonObj = data
         number = data.id
         name = data.name
@@ -22,17 +22,36 @@
 </script>
 
 <!-- Markup -->
-<h1>Change the pokemon that is displayed! (Enter the dex number in the text box below.)</h1>
+<h1>SvelteDex</h1>
 <form on:submit={fetchPokemonData}>
     <input required type="number" min="1" max="1010" bind:value={number}>
 </form>
 
 <h2>{pokemonObj.name}</h2>
-<img src={`${baseUrl}${newNumber}.png`} alt="pokemon">
+<div id="img">
+    <img src={`${baseUrl}${newNumber}.png`} alt="pokemon">
+</div>
+
 
 
 <!-- Styling -->
 <style>
+h1 {
+    text-align: center;
+}
 
+form {
+    text-align: center;
+    scale: 1.5;
+}
+
+h2 {
+    text-align: center;
+}
+
+#img {
+    display: flex;
+    justify-content: center;
+}
 
 </style>
