@@ -27,43 +27,43 @@
 </script>
 
 <!-- Markup -->
-<h1>SvelteDex</h1>
-<form on:submit={fetchPokemonData}>
-    <input required type="number" min="1" max="1010" bind:value={number}>
-</form>
+    <h1>SvelteDex</h1>
+    <form on:submit={fetchPokemonData}>
+        <input required type="number" min="1" max="1010" bind:value={number}>
+    </form>
 
-<h2>{pokemonObj.name}</h2>
-<div id="img">
-    <img src={`${baseUrl}${newNumber}.png`} alt="pokemon">
-</div>
+    <h2>{pokemonObj.name}</h2>
+    <div id="img">
+        <img src={`${baseUrl}${newNumber}.png`} alt="pokemon">
+    </div>
 
-{#each stats as { base_stat, stat }, i}
-<h3>{stat.name.toUpperCase()}: {base_stat}</h3>
-{/each}
+    {#each stats as { base_stat, stat }, i}
+    <h3>{stat.name.toUpperCase()}: {base_stat}</h3>
+    {/each}
 
 
 <!-- Styling -->
 <style>
-h1 {
-    text-align: center;
-}
+    h1 {
+        text-align: center;
+    }
 
-h3 {
-    text-align: center;
-}
+    h3 {
+        text-align: center;
+    }
 
-form {
-    text-align: center;
-    scale: 1.5;
-}
+    form {
+        text-align: center;
+        scale: 1.5;
+    }
 
-h2 {
-    text-align: center;
-}
+    h2 {
+        text-align: center;
+    }
 
-#img {
-    display: flex;
-    justify-content: center;
-}
+    #img {
+        display: flex;
+        justify-content: center;
+    }
 
 </style>
